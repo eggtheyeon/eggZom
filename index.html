@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>eggZom — 미소녀 좀비 방치형 로그라이크</title>
+<meta name="description" content="미소녀 좀비들을 이끌고 인류 최후의 방어선을 무너뜨리는 방치형 로그라이크.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>🧟‍♀️</text></svg>">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div id="boot">
+  <div class="boot-inner">
+    <div class="boot-logo">🧟‍♀️</div>
+    <h1>eggZom</h1>
+    <p>미소녀 좀비 방치형 로그라이크</p>
+  </div>
+</div>
+
+<div id="app" hidden>
+  <!-- ===== 상단 리소스 바 ===== -->
+  <header id="topbar">
+    <div class="brand"><span class="brand-emoji">🧟‍♀️</span><span class="brand-name">eggZom</span></div>
+    <div class="res" title="적을 처치하면 얻습니다. 강화에 사용."><span class="res-ico">🧠</span><span id="res-brains">0</span></div>
+    <div class="res" title="보스를 처치하면 얻습니다. 소환에 사용."><span class="res-ico">🦴</span><span id="res-bones">0</span></div>
+    <div class="res" title="재감염으로 얻는 영구 재화."><span class="res-ico">🧬</span><span id="res-genes">0</span></div>
+    <div class="spacer"></div>
+    <button id="btn-help" class="icon-btn" title="도움말">?</button>
+    <button id="btn-settings" class="icon-btn" title="설정">⚙</button>
+  </header>
+
+  <main id="main">
+    <!-- ===== 전장 ===== -->
+    <section id="stage">
+      <div id="wave-bar">
+        <div class="wave-info">
+          <span id="zone-name">폐교</span>
+          <strong id="wave-label">WAVE 1</strong>
+          <span id="best-label">최고 1</span>
+        </div>
+        <div class="wave-track"><div id="wave-fill"></div><span id="wave-count">0 / 10</span></div>
+      </div>
+
+      <canvas id="cv" width="960" height="540"></canvas>
+
+      <div id="boss-timer" hidden><span id="boss-timer-txt">30.0</span></div>
+      <div id="toast-area"></div>
+
+      <div id="barrier-bar">
+        <span class="bb-ico">🛡️</span>
+        <div class="bb-track"><div id="bb-fill"></div><span id="bb-txt">100 / 100</span></div>
+        <span id="dps-txt">DPS 0</span>
+      </div>
+
+      <div id="skillbar"></div>
+    </section>
+
+    <!-- ===== 사이드 패널 ===== -->
+    <section id="panel">
+      <nav id="tabs">
+        <button class="tab active" data-tab="upgrade">강화</button>
+        <button class="tab" data-tab="party">부대</button>
+        <button class="tab" data-tab="relic">유물</button>
+        <button class="tab" data-tab="gene">유전자</button>
+      </nav>
+      <div id="tab-body">
+        <div class="tab-page" data-page="upgrade"></div>
+        <div class="tab-page" data-page="party" hidden></div>
+        <div class="tab-page" data-page="relic" hidden></div>
+        <div class="tab-page" data-page="gene" hidden></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== 모달 ===== -->
+  <div id="modal" hidden>
+    <div class="modal-card">
+      <h2 id="modal-title"></h2>
+      <div id="modal-body"></div>
+      <div id="modal-actions"></div>
+    </div>
+  </div>
+</div>
+
+<script src="src/data.js"></script>
+<script src="src/state.js"></script>
+<script src="src/engine.js"></script>
+<script src="src/render.js"></script>
+<script src="src/ui.js"></script>
+<script src="src/main.js"></script>
+</body>
+</html>
