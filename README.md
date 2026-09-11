@@ -110,6 +110,12 @@ ZDEV.grantRelic('fang')
 
 ---
 
+## 아트 제작
+
+캐릭터·배경 일러스트를 외부 이미지 AI로 뽑기 위한 프롬프트 키트가
+[`docs/art-prompts.md`](docs/art-prompts.md) 에 있습니다. 인게임 색상 hex 를
+그대로 박아둬서, 받은 일러스트가 현재 UI 팔레트와 그대로 맞습니다.
+
 ## 라이선스
 
 MIT
