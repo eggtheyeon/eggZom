@@ -287,8 +287,16 @@ const all = [];
 UNITS.forEach((u, i) => {
   const n = String(i + 1).padStart(2, '0');
   const card = cardPrompt(u), sd = sdPrompt(u);
-  bundle.cards[u.id] = { name: u.name, en: ART[u.id].en, rarity: u.rarity, text: card };
-  bundle.sd[u.id] = { name: u.name, en: ART[u.id].en, rarity: u.rarity, text: sd };
+  const swatch = [
+    { label: '머리', hex: u.hair }, { label: '그림자', hex: u.hairDark },
+    { label: '눈', hex: u.eye }, { label: '의상', hex: u.dress }, { label: '피부', hex: u.skin },
+  ];
+  const meta = {
+    name: u.name, en: ART[u.id].en, epithet: ART[u.id].epithet, rarity: u.rarity,
+    role: ROLE_EN[u.role] || u.role, roleKo: u.role, swatch,
+  };
+  bundle.cards[u.id] = Object.assign({}, meta, { text: card, cardBg: ART[u.id].bg, cardBgName: ART[u.id].bgName });
+  bundle.sd[u.id] = Object.assign({}, meta, { text: sd });
   fs.writeFileSync(path.join(OUT, `card-${n}-${u.id}.txt`), card + '\n');
   fs.writeFileSync(path.join(OUT, `sd-${n}-${u.id}.txt`), sd + '\n');
   all.push(`===== 카드 일러 — ${u.name} (${ART[u.id].en}) / ${u.rarity} =====\n\n${card}\n`);
@@ -298,7 +306,10 @@ UNITS.forEach((u, i) => {
 ZONES.forEach((z, i) => {
   const n = String(i + 1).padStart(2, '0');
   const bg = bgPrompt(i);
-  bundle.bg[i + 1] = { name: z.name, text: bg };
+  bundle.bg[i + 1] = {
+    name: z.name, en: ZONE_EN[i], boss: z.boss, text: bg,
+    swatch: [{ label: '하늘', hex: z.sky[0] }, { label: '지평', hex: z.sky[1] }, { label: '지면', hex: z.ground }],
+  };
   fs.writeFileSync(path.join(OUT, `bg-${n}.txt`), bg + '\n');
   all.push(`===== 배경 ${i + 1} — ${z.name} =====\n\n${bg}\n`);
 });

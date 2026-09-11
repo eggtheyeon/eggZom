@@ -1,0 +1,270 @@
+<title>eggZom 아트 프롬프트</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --ground:#f6f3fa; --surface:#ffffff; --sunk:#efeaf6; --line:#ddd3ea; --line-2:#cabbe0;
+  --ink:#241a35; --ink-2:#5d5178; --ink-3:#8a7ea6;
+  --accent:#c9366b; --accent-soft:#fbe9f0; --mint:#0f8a57; --gold:#9a6a12; --violet:#6b3fb3;
+  --code:#f2eef8; --fade:#f2eef8;
+  --r:14px; --maxw:1180px;
+  --f-ui:"IBM Plex Sans KR","Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono","SFMono-Regular",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#14101f; --surface:#1d1730; --sunk:#171226; --line:#332748; --line-2:#4a3a68;
+    --ink:#efe7ff; --ink-2:#b7a9d2; --ink-3:#85789f;
+    --accent:#ff7aa8; --accent-soft:#2e1b2c; --mint:#5fd99b; --gold:#ffcf5c; --violet:#b07bff;
+    --code:#120e1e; --fade:#120e1e;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#14101f; --surface:#1d1730; --sunk:#171226; --line:#332748; --line-2:#4a3a68;
+  --ink:#efe7ff; --ink-2:#b7a9d2; --ink-3:#85789f;
+  --accent:#ff7aa8; --accent-soft:#2e1b2c; --mint:#5fd99b; --gold:#ffcf5c; --violet:#b07bff;
+  --code:#120e1e; --fade:#120e1e;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--f-ui);font-size:15px;line-height:1.65;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:20px}
+a{color:var(--accent)}
+code,pre{font-family:var(--f-mono)}
+button{font:inherit;color:inherit;cursor:pointer;border:none;background:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ---------- masthead ---------- */
+.mast{border-bottom:1px solid var(--line);background:var(--surface);padding-block:34px 26px}
+.mark{font-family:"Black Han Sans",var(--f-ui);font-size:13px;letter-spacing:3px;color:var(--accent);margin:0}
+.mast h1{font-size:clamp(30px,5vw,44px);font-weight:700;letter-spacing:-.02em;margin:6px 0 10px;text-wrap:balance}
+.lede{max-width:64ch;color:var(--ink-2);margin:0}
+.lede b{color:var(--ink);font-weight:600}
+.tally{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;padding:0;list-style:none}
+.tally li{display:flex;align-items:baseline;gap:7px;background:var(--sunk);border:1px solid var(--line);
+  border-radius:999px;padding:5px 14px;font-size:13px;color:var(--ink-2)}
+.tally b{font-family:var(--f-mono);font-size:15px;color:var(--ink);font-variant-numeric:tabular-nums}
+
+/* ---------- shell ---------- */
+.shell{display:grid;grid-template-columns:210px minmax(0,1fr);gap:36px;padding-block:32px 72px}
+.rail{position:sticky;top:20px;align-self:start}
+.rail h2{font-size:10.5px;letter-spacing:2px;color:var(--ink-3);margin:0 0 10px 12px;text-transform:uppercase}
+.rail a{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 12px;border-radius:9px;
+  color:var(--ink-2);text-decoration:none;font-size:13.5px;font-weight:500;transition:background .12s,color .12s}
+.rail a:hover{background:var(--sunk);color:var(--ink)}
+.rail a.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.rail a em{font-style:normal;font-family:var(--f-mono);font-size:11.5px;color:var(--ink-3)}
+.rail a.on em{color:var(--accent)}
+
+/* ---------- sections ---------- */
+section{scroll-margin-top:16px}
+section+section{margin-top:48px}
+.sec-h{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  padding-bottom:12px;border-bottom:2px solid var(--ink);margin-bottom:18px}
+.sec-h h2{font-size:21px;font-weight:700;letter-spacing:-.01em;margin:0}
+.sec-h p{margin:4px 0 0;color:var(--ink-2);font-size:13px;max-width:60ch}
+
+/* ---------- how ---------- */
+.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;counter-reset:step}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}
+.step::before{counter-increment:step;content:counter(step);font-family:var(--f-mono);font-size:12px;font-weight:600;
+  color:var(--accent);display:block;margin-bottom:6px}
+.step h3{margin:0 0 5px;font-size:14.5px;font-weight:700}
+.step p{margin:0;font-size:13px;color:var(--ink-2)}
+.warn{margin-top:14px;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:10px;padding:14px 18px}
+.warn h3{margin:0 0 5px;font-size:14px;color:var(--gold)}
+.warn p{margin:0;font-size:13.5px;color:var(--ink-2)}
+.warn code{background:var(--sunk);padding:1px 6px;border-radius:5px;font-size:12.5px;color:var(--ink)}
+
+/* ---------- spec ---------- */
+.stack{display:flex;flex-direction:column;gap:14px}
+.spec{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.spec-h{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 16px 12px}
+.spec-id{flex:1;min-width:180px}
+.spec-id h3{margin:0;font-size:16px;font-weight:700;letter-spacing:-.01em}
+.spec-id p{margin:2px 0 0;font-size:12.5px;color:var(--ink-3)}
+.chip{font-family:var(--f-mono);font-size:10.5px;font-weight:600;letter-spacing:.5px;padding:3px 9px;border-radius:999px;
+  border:1px solid var(--line-2);color:var(--ink-2)}
+.c-SR{border-color:var(--violet);color:var(--violet)}
+.c-SSR{border-color:var(--gold);color:var(--gold)}
+.c-zone{border-color:var(--line-2);color:var(--ink-3)}
+.btn{background:var(--accent);color:var(--surface);font-size:13px;font-weight:600;padding:7px 18px;border-radius:9px;
+  transition:filter .12s,background .12s}
+.btn:hover{filter:brightness(1.08)}
+.btn.ok{background:var(--mint)}
+.sw{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 12px}
+.sw-i{display:inline-flex;align-items:center;gap:5px;background:var(--sunk);border:1px solid var(--line);
+  border-radius:7px;padding:3px 8px 3px 4px}
+.sw-i i{width:13px;height:13px;border-radius:4px;border:1px solid rgba(128,128,128,.35);display:block}
+.sw-i code{font-size:10.5px;color:var(--ink-2);letter-spacing:-.02em}
+.sw-bg{border-style:dashed}
+
+.pane{position:relative;border-top:1px solid var(--line);background:var(--code)}
+.pane pre{margin:0;padding:16px 16px 34px;max-height:7.2em;overflow:hidden;font-size:12.2px;line-height:1.72;
+  color:var(--ink-2);white-space:pre-wrap;word-break:break-word}
+.pane.open pre{max-height:none;overflow-x:auto;padding-bottom:8px}
+.fade{position:absolute;left:0;right:0;bottom:0;height:62px;pointer-events:none;
+  background:linear-gradient(to bottom,transparent,var(--fade) 70%)}
+.pane.open .fade{display:none}
+.more{position:absolute;left:50%;transform:translateX(-50%);bottom:8px;font-size:12px;font-weight:600;
+  color:var(--accent);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px 16px}
+.pane.open .more{position:static;transform:none;display:block;margin:0 auto 12px}
+
+/* ---------- responsive ---------- */
+@media (max-width:880px){
+  .shell{grid-template-columns:1fr;gap:20px}
+  .rail{position:static;display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;
+    border-bottom:1px solid var(--line)}
+  .rail h2{display:none}
+  .rail a{white-space:nowrap;padding:7px 13px}
+}
+@media (max-width:520px){
+  .spec-h{padding:13px 13px 10px}
+  .sw{padding:0 13px 11px}
+  .pane pre{padding:13px;font-size:11.6px}
+  .btn{width:100%}
+}
+footer{border-top:1px solid var(--line);padding-block:22px 40px;color:var(--ink-3);font-size:12.5px}
+</style>
+
+<header class="mast">
+  <div class="wrap">
+    <p class="mark">eggZom</p>
+    <h1>아트 프롬프트</h1>
+    <p class="lede">미소녀 좀비 방치형 로그라이크 <b>eggZom</b>의 일러스트를 이미지 AI로 발주하기 위한
+      완성 프롬프트입니다. 색상 hex는 게임 구현값을 그대로 박아둬서, 받은 그림이 인게임 팔레트와 그대로 맞습니다.
+      각 프롬프트는 <b>조립이 끝난 상태</b>라 그대로 붙여넣으면 됩니다.</p>
+    <ul class="tally">
+      <li><b>8</b> 카드 일러</li>
+      <li><b>8</b> SD 아바타</li>
+      <li><b>10</b> 지역 배경</li>
+      <li><b>26</b> 총 프롬프트</li>
+    </ul>
+  </div>
+</header>
+
+<div class="wrap shell">
+  <nav class="rail">
+    <h2>목차</h2>
+    <a href="#how" class="on">쓰는 법</a>
+    <a href="#card">카드 일러 <em>8</em></a>
+    <a href="#sd">SD 아바타 <em>8</em></a>
+    <a href="#bg">지역 배경 <em>10</em></a>
+    <a href="#neg">네거티브 <em>1</em></a>
+  </nav>
+
+  <main>
+    <section id="how">
+      <div class="sec-h"><div><h2>쓰는 법</h2>
+        <p>8명이 한 게임의 캐릭터로 보이게 만드는 것이 전부입니다. 순서를 지키세요.</p></div></div>
+      <div class="how">
+        <div class="step"><h3>미라부터 뽑는다</h3>
+          <p>가장 먼저 미라 카드 일러를 원하는 품질이 나올 때까지 돌립니다. 이 한 장이 나머지 전부의 기준이 됩니다.</p></div>
+        <div class="step"><h3>스타일 레퍼런스로 물린다</h3>
+          <p>확정된 미라 이미지를 나머지 7명의 스타일 참조로 넣습니다. Midjourney는 <code>--sref</code>, 그 외는 스타일 참조 이미지 슬롯.</p></div>
+        <div class="step"><h3>프롬프트는 손대지 않는다</h3>
+          <p>앞부분 공통 블록을 조금이라도 고쳐 쓰면 화풍이 갈라집니다. 아래 프롬프트를 통째로 복사해서 쓰세요.</p></div>
+      </div>
+      <div class="warn">
+        <h3>투명 배경은 요구하지 마세요</h3>
+        <p>대부분의 모델이 투명 배경을 깨끗하게 못 냅니다. 프롬프트에 이미 <code>평평한 단색 배경 · 잘라내기 쉬운 경계</code>로
+          지시해뒀으니, 받은 뒤에 따내는 편이 결과가 훨씬 낫습니다.</p>
+      </div>
+    </section>
+
+    <section id="card">
+      <div class="sec-h"><div><h2>카드 일러</h2>
+        <p>1536×2048 · 캐릭터 카드와 소환 연출에 쓰입니다. 배경색은 캐릭터 주조색과 멀리 떨어뜨려
+          썸네일에서 실루엣이 묻히지 않게 지정해뒀습니다.</p></div>
+        <button class="btn copy" type="button" data-section="card">8개 모두 복사</button></div>
+      <div class="stack"><!--CARDS--></div>
+    </section>
+
+    <section id="sd">
+      <div class="sec-h"><div><h2>SD 아바타</h2>
+        <p>256×256 · 전장에 실제로 서는 2.5등신 스프라이트. idle 한 장이면 됩니다 — 호흡, 공격 반동, 돌진 모션은
+          엔진이 코드로 얹어줍니다.</p></div>
+        <button class="btn copy" type="button" data-section="sd">8개 모두 복사</button></div>
+      <div class="stack"><!--SDS--></div>
+    </section>
+
+    <section id="bg">
+      <div class="sec-h"><div><h2>지역 배경</h2>
+        <p>3840×1680 · 지면선이 이미지 높이의 79% 지점에 와야 합니다. 게임이 그 선을 기준으로 배경을 정렬하기 때문에,
+          어긋나면 캐릭터가 공중에 뜹니다.</p></div>
+        <button class="btn copy" type="button" data-section="bg">10개 모두 복사</button></div>
+      <div class="stack"><!--BGS--></div>
+    </section>
+
+    <section id="neg">
+      <div class="sec-h"><div><h2>네거티브</h2>
+        <p>Stable Diffusion 계열처럼 네거티브 프롬프트를 따로 받는 모델에서만 씁니다.</p></div></div>
+      <div class="stack"><!--NEG--></div>
+    </section>
+
+    <footer>프롬프트는 <code>tools/build-prompts.js</code>가 <code>src/data.js</code>의 실제 구현값을 읽어 생성합니다.
+      게임 색을 바꾸면 다시 돌려서 갱신하세요.</footer>
+  </main>
+</div>
+
+<script>
+(function(){
+  function flash(btn, label){
+    var old = btn.dataset.label || btn.textContent;
+    btn.dataset.label = old;
+    btn.classList.add('ok'); btn.textContent = label;
+    setTimeout(function(){ btn.classList.remove('ok'); btn.textContent = old; }, 1500);
+  }
+  function write(text, btn, label){
+    var done = function(){ flash(btn, label); };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done, function(){ legacy(text, done); });
+    } else { legacy(text, done); }
+  }
+  function legacy(text, done){
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.setAttribute('readonly','');
+    ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); } catch(e){}
+    ta.remove(); done();
+  }
+  document.addEventListener('click', function(e){
+    var copy = e.target.closest('.copy');
+    if (copy){
+      if (copy.dataset.section){
+        var sec = document.getElementById(copy.dataset.section);
+        var all = [].map.call(sec.querySelectorAll('.spec'), function(s){
+          return '===== ' + s.querySelector('h3').textContent + ' =====\n\n' + s.querySelector('pre').textContent;
+        }).join('\n\n');
+        write(all, copy, '모두 복사됨');
+      } else {
+        write(document.getElementById(copy.dataset.target).textContent, copy, '복사됨');
+      }
+      return;
+    }
+    var more = e.target.closest('.more');
+    if (more){
+      var pane = more.closest('.pane');
+      var open = pane.classList.toggle('open');
+      more.textContent = open ? '접기' : '전문 보기';
+      more.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+  });
+
+  var links = [].slice.call(document.querySelectorAll('.rail a'));
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        links.forEach(function(a){ a.classList.remove('on'); });
+        if (map[en.target.id]) map[en.target.id].classList.add('on');
+      });
+    }, { rootMargin: '-10% 0px -75% 0px' });
+    [].forEach.call(document.querySelectorAll('main section'), function(s){ io.observe(s); });
+  }
+})();
+</script>
