@@ -1,0 +1,31 @@
+Official full-body character art for a modern Japanese mobile gacha RPG. Anime illustration, premium key-visual quality.
+Line: clean confident linework with tapered weight variation, closed shapes, zero sketch noise.
+Shading: bold two-step cel shading with clearly visible hard-edged shadow shapes under the chin, inside the collar, beneath the skirt and along the inner limbs, plus a soft airbrush gradient inside the core shadow; glossy specular on hair, eyes and any glossy material; warm subsurface glow at ears, fingertips and the bridge of the nose. High contrast, rich saturation, deep shadow values — never washed out or flat-lit.
+Eyes: large glossy anime eyes, vertical iris gradient from dark rim to bright center, crisp highlight ring, two white specular dots, soft light bounce on the lower lid, thick upper lash line, delicate lower lashes.
+Light: key light from upper-front-left, cool moonlight fill from the right.
+Rim light: mandatory and obvious — a bright saturated rim tracing the entire back edge of the hair and body, clearly separated in both hue and value from the local color.
+Hands: keep both hands near the body or partially occluded by the weapon; never a foreground hand disconnected from a visible forearm.
+Palette: low-saturation neutral base plus exactly two high-saturation accent hues; strong value separation between skin, hair and costume so the silhouette reads at thumbnail size.
+Costume craft: layered fabric with visible seams and stitched trim, small metal hardware, buckles, straps and ribbons that react to the pose and to a light breeze.
+Hair: grouped into clear readable clumps with rim-lit edges and 3-5 flyaway strands; never a flat blob.
+Pose: relaxed combat-ready contrapposto, three-quarter body turn, face toward camera, weight on one leg, both hands doing something specific and characterful.
+Framing: full body, head to shoes, entirely inside the frame with an 8% margin; figure fills 85% of frame height; eye line on the upper third.
+Background: flat radial gradient in deep violet #2a1f4a, far darker than the character's own colors, so the silhouette separates hard even at thumbnail size; sparse floating light particles. No environment, no floor, no cast shadow, clean edges that are easy to cut out.
+Output: vertical 3:4, 4K, razor-sharp focus, no text, no watermark, no signature, no border, no UI, no logo.
+
+These girls are zombies, but the undead reads as FASHION, not as injury.
+ALWAYS include: pale mint-green skin, two small neat cross-stitch marks on one cheek or one thigh, one or two small clean bandages, tiny fangs peeking from the corner of the mouth, a faintly glowing iris, one frayed ribbon or slightly torn hem.
+NEVER include: blood, gore, open wounds, exposed bone, rot, decay texture, missing limbs, pus, lesions, flies, horror expression, dead or empty eyes, grimdark mood.
+Mood: cheerful, mischievous, charming, a little melancholy. Cute first, undead second. Suitable for a general-audience store page.
+
+Name: Neko, "Whisper of Claws".
+Rarity R, rapid multi-hit striker. Looks 15-16, small and springy.
+Hair: short messy bob, butter yellow #ffe07a with gold shadow #d9b63f, a stubborn cowlick, a fish-bone shaped hairpin.
+Eyes: mint green #7df0b4, huge, round, gleeful.
+Skin: pale mint-green #d7ecc9.
+Costume: oversized yellow #f0c64a cardigan with sweater-paw sleeves worn over a white school blouse, very short pleated skirt, deliberately mismatched socks (one striped knee-high, one ankle sock), scuffed sneakers.
+Weapon: dark claws extending past the sweater-paw sleeves.
+Signature motif: real cat ears growing from her skull, fused into the hair with a faint stitched seam at the base, and a matching tail with a seam ring near the tip; yellow after-image slash arcs trailing behind her hands.
+Pose: caught mid-pounce, both clawed hands raised, knees tucked, body arcing forward.
+Expression: enormous open grin with prominent fangs, eyes squeezed into happy crescents.
+Effects: minimal — a few floating motes in the accent hue.

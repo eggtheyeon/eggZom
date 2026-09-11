@@ -1,0 +1,13 @@
+Horizontal side-scrolling 2D game background plate for an anime mobile game. Absolutely no characters, no people, no creatures, no text.
+Aspect ratio 16:7 ultrawide, composed to tile seamlessly left to right.
+Three separated depth planes:
+  FAR  (top 45%)    — night sky and a distant skyline silhouette at 25% contrast, heavy atmospheric haze.
+  MID  (middle 35%) — the zone's signature architecture as flat two-or-three-value silhouettes with warm window lights.
+  NEAR (bottom 20%) — a flat walkable ground plane, perfectly horizontal, wet surface with soft reflections and scattered debris.
+The ground line sits at exactly 79% of image height and runs dead straight from edge to edge. This is a hard requirement: the game aligns the plate by that line.
+Style: painterly anime background art, clean readable shapes, limited palette, strong value hierarchy, cinematic night lighting, volumetric fog pooling at the ground, gentle bloom on every light source.
+Mood: beautiful desolation — abandoned, quiet, moonlit. No blood, no corpses, no gore, no horror.
+Output: 4K, no characters, no text, no watermark, no UI, no vignette, no border, no foreground framing elements.
+
+Zone 5 — Military Base. Overrun military base: sandbag walls, a toppled watchtower, coils of razor wire, a burnt-out transport truck, floodlight masts. Harsh white floodlight.
+Palette: vertical sky gradient from #2c3124 at the top to #151a12 at the horizon; ground plane #2a3020; exactly one warm accent light source as described.

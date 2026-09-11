@@ -1,0 +1,31 @@
+Official full-body character art for a modern Japanese mobile gacha RPG. Anime illustration, premium key-visual quality.
+Line: clean confident linework with tapered weight variation, closed shapes, zero sketch noise.
+Shading: bold two-step cel shading with clearly visible hard-edged shadow shapes under the chin, inside the collar, beneath the skirt and along the inner limbs, plus a soft airbrush gradient inside the core shadow; glossy specular on hair, eyes and any glossy material; warm subsurface glow at ears, fingertips and the bridge of the nose. High contrast, rich saturation, deep shadow values — never washed out or flat-lit.
+Eyes: large glossy anime eyes, vertical iris gradient from dark rim to bright center, crisp highlight ring, two white specular dots, soft light bounce on the lower lid, thick upper lash line, delicate lower lashes.
+Light: key light from upper-front-left, cool moonlight fill from the right.
+Rim light: mandatory and obvious — a bright saturated rim tracing the entire back edge of the hair and body, clearly separated in both hue and value from the local color.
+Hands: keep both hands near the body or partially occluded by the weapon; never a foreground hand disconnected from a visible forearm.
+Palette: low-saturation neutral base plus exactly two high-saturation accent hues; strong value separation between skin, hair and costume so the silhouette reads at thumbnail size.
+Costume craft: layered fabric with visible seams and stitched trim, small metal hardware, buckles, straps and ribbons that react to the pose and to a light breeze.
+Hair: grouped into clear readable clumps with rim-lit edges and 3-5 flyaway strands; never a flat blob.
+Pose: relaxed combat-ready contrapposto, three-quarter body turn, face toward camera, weight on one leg, both hands doing something specific and characterful.
+Framing: full body, head to shoes, entirely inside the frame with an 8% margin; figure fills 85% of frame height; eye line on the upper third.
+Background: flat radial gradient in deep blue-teal #12303a, far darker than the character's own colors, so the silhouette separates hard even at thumbnail size; sparse floating light particles. No environment, no floor, no cast shadow, clean edges that are easy to cut out.
+Output: vertical 3:4, 4K, razor-sharp focus, no text, no watermark, no signature, no border, no UI, no logo.
+
+These girls are zombies, but the undead reads as FASHION, not as injury.
+ALWAYS include: pale mint-green skin, two small neat cross-stitch marks on one cheek or one thigh, one or two small clean bandages, tiny fangs peeking from the corner of the mouth, a faintly glowing iris, one frayed ribbon or slightly torn hem.
+NEVER include: blood, gore, open wounds, exposed bone, rot, decay texture, missing limbs, pus, lesions, flies, horror expression, dead or empty eyes, grimdark mood.
+Mood: cheerful, mischievous, charming, a little melancholy. Cute first, undead second. Suitable for a general-audience store page.
+
+Name: Ruby, "The Bloodline Sniper".
+Rarity SR, long-range marksman. Looks 17-18, tall and lean.
+Hair: long straight hair to the waist, vivid coral red #ff6b5c with crimson shadow #c94434, blunt bangs, one thin braid at the temple.
+Eyes: golden amber #ffd34d, sharp, half-lidded and confident.
+Skin: pale mint-green #dceccb.
+Costume: crimson #e04a3c military-cut blazer worn open over a white sailor collar, black tactical belt, thigh holster with spare magazines, a long red scarf streaming behind her, black shorts, high combat boots.
+Weapon: an oversized bolt-action anti-materiel rifle held across the body with both hands, scuffed metal, a small bone charm tied to the stock.
+Signature motif: spent brass casings floating weightlessly around her, a crosshair glint in one eye.
+Pose: standing tall, rifle angled across the chest, both hands on the weapon, hip cocked.
+Expression: cool smirk, chin slightly down, looking up at the viewer through her lashes.
+Effects: moderate — accent-colored energy ribbons curling around the body, drifting light particles, a secondary rim light on the opposite edge.

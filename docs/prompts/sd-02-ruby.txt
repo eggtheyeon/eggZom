@@ -1,0 +1,18 @@
+Chibi game sprite of the character, for a 2D side-scrolling battle field.
+Proportions: two-and-a-half heads tall, oversized round head, tiny compact body, short stubby limbs, no visible neck.
+Identity: exactly the same hair color, eye color, costume colors and signature silhouette cues as the character's full illustration, so the two read as the same character at a glance. Keep the one clearest identifying feature oversized and obvious.
+Facing: three-quarter view turned to the RIGHT, standing idle, weight settled evenly, weapon held so its silhouette is readable at 128 pixels.
+Rendering: thick uniform outline, flat cel shading with a single shadow step, chunky readable shapes, high contrast against a plain background. No gradients, no fine detail, no texture, no small text or tiny ornaments on the costume.
+Zombie cues, simplified: pale mint-green skin, ONE cross-stitch mark, ONE bandage, tiny fangs. Nothing more — small details disappear at game size.
+Framing: character centered horizontally; the soles of the feet touch the BOTTOM EDGE of the canvas exactly, the top of the head near the top edge. No empty padding under the feet.
+Background: plain flat solid color, clean hard edges, easy to cut out. No ground shadow, no platform, no scenery, no effects.
+Output: square 1:1, no text, no watermark, no border, no multiple views, no turnaround sheet.
+
+Character: Ruby.
+Hair: very long straight coral red #ff6b5c hair with crimson shadow #c94434, blunt bangs — the long hair and the red scarf are her silhouette.
+Eyes: huge golden amber #ffd34d eyes, half-lidded and confident.
+Skin: pale mint-green #dceccb.
+Costume: crimson #e04a3c blazer over a white collar, long red scarf trailing behind, black shorts, chunky combat boots.
+Weapon: an oversized rifle held across the body, comically large for the chibi frame.
+Zombie cue: one cross-stitch on the cheek, one bandage on a forearm, two tiny fangs.
+Expression: small cool smirk with one fang.

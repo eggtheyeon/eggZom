@@ -87,7 +87,9 @@ src/render.js       Canvas 렌더러 (절차적 미소녀 드로잉 포함)
 src/ui.js           탭 · 강화 · 부대 · 소환 · 유물 선택 · 재감염
 src/main.js         부트 · 고정 timestep 루프 · 방치 정산
 art/manifest.js     교체할 일러스트 목록
-docs/art-prompts.md 일러스트 외주용 프롬프트 키트
+docs/art-prompts.md 일러스트 외주용 프롬프트 키트 (설명서)
+docs/prompts/        조립 완료된 복붙용 프롬프트 26종
+tools/build-prompts.js  data.js 를 읽어 프롬프트를 생성
 ```
 
 - **고정 timestep(1/60초)** 으로 프레임률과 무관하게 동일한 밸런스를 보장합니다.
@@ -118,6 +120,10 @@ ZDEV.grantRelic('fang')
 캐릭터·배경 일러스트를 외부 이미지 AI로 뽑기 위한 프롬프트 키트가
 [`docs/art-prompts.md`](docs/art-prompts.md) 에 있습니다. 인게임 색상 hex 를
 그대로 박아둬서, 받은 일러스트가 현재 UI 팔레트와 그대로 맞습니다.
+
+조립이 끝난 복붙용 프롬프트 26종(카드 8 · SD 8 · 배경 10)은
+[`docs/prompts/`](docs/prompts/) 에 있습니다. 게임 색을 바꾸면
+`node tools/build-prompts.js` 로 다시 뽑으면 됩니다.
 
 그림이 나오면 **코드 수정 없이** `art/` 에 파일을 넣고 `art/manifest.js` 에
 이름만 적으면 됩니다. 전장 아바타는 SD(2.5등신), 캐릭터 카드는 전신 일러로
