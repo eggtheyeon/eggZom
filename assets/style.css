@@ -174,6 +174,23 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none}
 #modal-actions button{flex:1;padding:11px;border-radius:10px;font-weight:800;background:var(--panel2);border:1px solid var(--line)}
 #modal-actions button.pri{background:var(--pink);border-color:var(--pink);color:#2a0b18}
 
+/* 캐릭터 카드 */
+.card-wrap{display:flex;gap:14px;align-items:flex-start}
+.card-art{flex:none;width:224px;border-radius:12px;overflow:hidden;border:1px solid var(--line);
+  background:linear-gradient(160deg,#2a2040,#161022)}
+.card-art img,.card-art canvas{width:100%;height:auto;display:block}
+.card-info{flex:1;min-width:0}
+.card-title{font-size:11.5px;color:var(--violet);font-weight:700;letter-spacing:.5px}
+.card-name{font-size:23px;font-weight:800;display:flex;align-items:center;gap:8px;margin-top:2px}
+.card-quote{font-size:12px;color:var(--dim);margin:9px 0 12px;line-height:1.75}
+.card-stat{display:flex;justify-content:space-between;gap:10px;font-size:12px;padding:6px 1px;border-bottom:1px dashed var(--line)}
+.card-stat span{color:var(--dim)}
+@media (max-width:560px){
+  .card-wrap{flex-direction:column;align-items:center}
+  .card-art{width:100%;max-width:240px}
+  .card-info{width:100%}
+}
+
 /* relic pick cards */
 .pick-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
 .pick{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:13px;text-align:center;transition:transform .12s,border-color .12s}

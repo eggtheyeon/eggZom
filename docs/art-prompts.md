@@ -25,15 +25,17 @@
 [STYLE LOCK]
 Official full-body character art for a modern Japanese mobile gacha RPG. Anime illustration, premium key-visual quality.
 Line: clean confident linework with tapered weight variation, closed shapes, zero sketch noise.
-Shading: cel shading with exactly two shadow steps plus a soft airbrush gradient inside the core shadow; glossy specular on hair, eyes and any glossy material; warm subsurface glow at ears, fingertips and the bridge of the nose.
+Shading: bold two-step cel shading with clearly visible hard-edged shadow shapes under the chin, inside the collar, beneath the skirt and along the inner limbs, plus a soft airbrush gradient inside the core shadow; glossy specular on hair, eyes and any glossy material; warm subsurface glow at ears, fingertips and the bridge of the nose. High contrast, rich saturation, deep shadow values — never washed out or flat-lit.
 Eyes: large glossy anime eyes, vertical iris gradient from dark rim to bright center, crisp highlight ring, two white specular dots, soft light bounce on the lower lid, thick upper lash line, delicate lower lashes.
-Light: key light from upper-front-left, cool moonlight fill from the right, a saturated rim light tracing the entire back edge of the figure in the character's own accent hue.
+Light: key light from upper-front-left, cool moonlight fill from the right.
+Rim light: mandatory and obvious — a bright saturated rim tracing the entire back edge of the hair and body, clearly separated in both hue and value from the local color.
+Hands: keep both hands near the body or partially occluded by the weapon; never a foreground hand disconnected from a visible forearm.
 Palette: low-saturation neutral base plus exactly two high-saturation accent hues; strong value separation between skin, hair and costume so the silhouette reads at thumbnail size.
 Costume craft: layered fabric with visible seams and stitched trim, small metal hardware, buckles, straps and ribbons that react to the pose and to a light breeze.
 Hair: grouped into clear readable clumps with rim-lit edges and 3-5 flyaway strands; never a flat blob.
 Pose: relaxed combat-ready contrapposto, three-quarter body turn, face toward camera, weight on one leg, both hands doing something specific and characterful.
 Framing: full body, head to shoes, entirely inside the frame with an 8% margin; figure fills 85% of frame height; eye line on the upper third.
-Background: flat soft radial gradient in the character's accent hue with sparse floating light particles. No environment, no floor, no cast shadow, clean edges that are easy to cut out.
+Background: flat radial gradient in a hue 150-180 degrees opposite the character's dominant color and at least 35% darker in value, so the silhouette separates hard even at thumbnail size; sparse floating light particles. No environment, no floor, no cast shadow, clean edges that are easy to cut out.
 Output: vertical 3:4, 4K, razor-sharp focus, no text, no watermark, no signature, no border, no UI, no logo.
 ```
 
@@ -58,6 +60,22 @@ Mood: cheerful, mischievous, charming, a little melancholy. Cute first, undead s
 | **R** | `Effects: minimal — a few floating motes in the accent hue, plain radial gradient background.` |
 | **SR** | `Effects: moderate — accent-colored energy ribbons curling around the body, drifting light particles, a secondary rim light on the opposite edge.` |
 | **SSR** | `Effects: maximal — an ornate glowing magic circle beneath the feet, floating runes and shards orbiting the figure, volumetric god rays, dual rim light, hair and garments frozen mid-motion as if caught in an updraft.` |
+
+## 3-1. 캐릭터별 권장 카드 배경색
+
+배경을 캐릭터와 같은 색으로 깔면 실루엣이 녹아서 **썸네일에서 형태가 안 읽힙니다.**
+`SUBJECT` 의 Background 줄에 아래 색을 직접 지정하세요.
+
+| 소녀 | 주조색 | 권장 배경 |
+|---|---|---|
+| 미라 | 핑크 `#ff9ec2` | 딥 틸 `#1f3a3a` |
+| 루비 | 레드 `#ff6b5c` | 딥 블루틸 `#12303a` |
+| 네코 | 옐로 `#ffe07a` | 딥 바이올렛 `#2a1f4a` |
+| 하루 | 스카이블루 `#8fd3ff` | 웜 다크브라운 `#3a2718` |
+| 비비 | 라벤더 `#c79bff` | 다크 올리브 `#1f3320` |
+| 노바 | 바이올렛 `#b07bff` | 다크 모스 `#16281c` |
+| 유키 | 아이스화이트 `#dff3ff` | 딥 네이비 `#16203d` |
+| 세라 | 크림골드 `#ffe9b8` | 딥 인디고 `#241a3f` |
 
 ## 4. NEGATIVE PROMPT (Stable Diffusion 계열용)
 
@@ -89,7 +107,8 @@ Weapon: clawed gloves, dark tapered claw tips, both forearms lightly bandaged.
 Signature motif: a hospital wristband on her left wrist stamped "00", cherry blossom petals drifting.
 Pose: low forward crouch, one clawed hand reaching toward the viewer, other hand back for balance.
 Expression: playful open-mouth grin with two small fangs, one eye winked.
-Effects: minimal — a few floating pink motes, plain radial gradient background.
+Effects: minimal — a few floating pink motes.
+Background: flat radial gradient in deep teal #1f3a3a, much darker than her pink, so the silhouette separates hard at thumbnail size.
 ```
 
 ### 루비 (Ruby) — SR · 원거리 · "피의 저격수"
@@ -254,33 +273,66 @@ Output: 4K, no characters, no text, no watermark, no UI, no vignette, no border,
 
 ---
 
-# 7. 필요한 산출물 규격
+# 7. 산출물 규격 — 카드 일러와 SD 아바타는 따로
 
-지금 게임은 캐릭터를 Canvas 로 직접 그리고 있습니다. 일러스트로 교체하려면
-캐릭터당 **3종**이 필요합니다.
+**한 장으로 둘 다 쓰려고 하면 둘 다 망합니다.**
+7등신 카드 일러는 전장에서 96px로 줄어드는 순간 얼굴이 뭉개지고 실루엣이 안 읽힙니다.
+전장에 서는 건 **2.5등신 SD**, 카드에 걸리는 건 **전신 일러** — 분리가 맞습니다.
 
-| 용도 | 크기 | 내용 |
-|---|---|---|
-| `art/full/{id}.png` | 1536×2048 (3:4) | 전신 일러스트. 도감 / 소환 연출용 |
-| `art/bust/{id}.png` | 512×512 | 가슴 위 크롭. 편성 슬롯 · 카드 썸네일 (원형 크롭 대비해 여백 확보) |
-| `art/chibi/{id}.png` | 256×256 | 2.5등신 치비. **전장에 실제로 서는 스프라이트** |
+| 용도 | 경로 | 크기 | 쓰이는 곳 |
+|---|---|---|---|
+| **SD 아바타** | `art/chibi/{id}.png` | 256×256 | **전장에 실제로 서는 캐릭터** |
+| 버스트 | `art/bust/{id}.png` | 512×512 | 편성 슬롯 · 소녀 목록 썸네일 |
+| **카드 일러** | `art/full/{id}.png` | 1536×2048 | 캐릭터 카드 모달 · 소환 연출 |
+| 지역 배경 | `art/bg/{1~10}.png` | 3840×1680 | 전장 배경 |
 
-치비는 같은 STYLE LOCK 으로는 안 나옵니다. 아래로 교체하세요.
+> 소녀 id : `mira` `ruby` `neko` `haru` `vivi` `nova` `yuki` `sera`
+
+**SD는 idle 한 장이면 충분합니다.** 엔진이 상하 호흡·공격 시 앞으로 눌림·근접 돌진
+모션을 코드로 얹어주기 때문에, 프레임 애니메이션을 따로 뽑을 필요가 없습니다.
+
+## SD 아바타 전용 STYLE LOCK
+
+카드용 STYLE LOCK 으로는 절대 SD가 안 나옵니다. 통째로 교체하세요.
 
 ```
 [CHIBI STYLE LOCK]
-Chibi sprite of the same character for a 2D side-scrolling battle field.
-Two-and-a-half heads tall, huge head, tiny body, stubby limbs, no visible neck.
-Same hair color, same eye color, same costume colors and same silhouette cues as the full illustration so the character is instantly recognizable.
-Facing right in three-quarter view, standing idle, weapon visible and readable at 128 pixels.
-Thick uniform outline, flat cel shading with a single shadow step, chunky readable shapes, no fine detail, no small text on the costume.
-Centered, full body with feet on the bottom edge, plain flat background for easy cutout.
-Output: square 1:1, no text, no watermark, no border, no ground shadow.
+Chibi game sprite of the character, for a 2D side-scrolling battle field.
+Proportions: two-and-a-half heads tall, oversized round head, tiny compact body, short stubby limbs, no visible neck.
+Identity: exactly the same hair color, eye color, costume colors and signature silhouette cues as the character's full illustration, so the two read as the same character at a glance. Keep the one clearest identifying feature oversized and obvious.
+Facing: three-quarter view turned to the RIGHT, standing idle, weight settled evenly, weapon held so its silhouette is readable at 128 pixels.
+Rendering: thick uniform outline, flat cel shading with a single shadow step, chunky readable shapes, high contrast against a plain background. No gradients, no fine detail, no texture, no small text or tiny ornaments on the costume.
+Zombie cues, simplified: pale mint-green skin, ONE cross-stitch mark, ONE bandage, tiny fangs. Nothing more — small details disappear at game size.
+Framing: character centered horizontally; the soles of the feet touch the BOTTOM EDGE of the canvas exactly, the top of the head near the top edge. No empty padding under the feet.
+Background: plain flat solid color, clean hard edges, easy to cut out. No ground shadow, no platform, no scenery, no effects.
+Output: square 1:1, no text, no watermark, no border, no multiple views, no turnaround sheet.
 ```
 
-배경은 지역당 `art/bg/{n}.png` 3840×1680 하나면 충분합니다.
+> **발바닥이 캔버스 아래 변에 닿아야 합니다.** 엔진이 이미지 하단을 지면으로 잡기
+> 때문에, 발 밑에 여백이 있으면 캐릭터가 공중에 뜬 채로 서 있게 됩니다.
 
----
+## 복붙용 완성 SD 프롬프트 (미라)
+
+```
+Chibi game sprite of the character, for a 2D side-scrolling battle field.
+Proportions: two-and-a-half heads tall, oversized round head, tiny compact body, short stubby limbs, no visible neck.
+Identity: exactly the same hair color, eye color, costume colors and signature silhouette cues as the character's full illustration, so the two read as the same character at a glance. Keep the one clearest identifying feature oversized and obvious.
+Facing: three-quarter view turned to the RIGHT, standing idle, weight settled evenly, weapon held so its silhouette is readable at 128 pixels.
+Rendering: thick uniform outline, flat cel shading with a single shadow step, chunky readable shapes, high contrast against a plain background. No gradients, no fine detail, no texture, no small text or tiny ornaments on the costume.
+Zombie cues, simplified: pale mint-green skin, ONE cross-stitch mark, ONE bandage, tiny fangs. Nothing more — small details disappear at game size.
+Framing: character centered horizontally; the soles of the feet touch the BOTTOM EDGE of the canvas exactly, the top of the head near the top edge. No empty padding under the feet.
+Background: plain flat solid color, clean hard edges, easy to cut out. No ground shadow, no platform, no scenery, no effects.
+Output: square 1:1, no text, no watermark, no border, no multiple views, no turnaround sheet.
+
+Character: Mira, the pink-haired patient zero.
+Hair: twin tails in soft pink #ff9ec2 with rose shadow #e0709c, one bouncy ahoge, big pink ribbons — the twin tails should be exaggerated and oversized, they are her silhouette.
+Eyes: huge rose red #ff4d79 eyes taking up most of the face, one winked shut.
+Skin: pale mint-green #d7ecc9.
+Costume: pink #ff7aa8 sailor uniform, white blouse, pink pleated skirt, white knee socks, brown loafers.
+Weapon: small dark clawed gloves, claws clearly readable against the skirt.
+Zombie cue: one cross-stitch on the right cheek, one bandage on the left forearm, two tiny fangs.
+Expression: wide happy open-mouth grin.
+```
 
 # 8. 복붙용 완성 프롬프트 (미라 · R)
 
@@ -289,15 +341,17 @@ Output: square 1:1, no text, no watermark, no border, no ground shadow.
 ```
 Official full-body character art for a modern Japanese mobile gacha RPG. Anime illustration, premium key-visual quality.
 Line: clean confident linework with tapered weight variation, closed shapes, zero sketch noise.
-Shading: cel shading with exactly two shadow steps plus a soft airbrush gradient inside the core shadow; glossy specular on hair, eyes and any glossy material; warm subsurface glow at ears, fingertips and the bridge of the nose.
+Shading: bold two-step cel shading with clearly visible hard-edged shadow shapes under the chin, inside the collar, beneath the skirt and along the inner limbs, plus a soft airbrush gradient inside the core shadow; glossy specular on hair, eyes and any glossy material; warm subsurface glow at ears, fingertips and the bridge of the nose. High contrast, rich saturation, deep shadow values — never washed out or flat-lit.
 Eyes: large glossy anime eyes, vertical iris gradient from dark rim to bright center, crisp highlight ring, two white specular dots, soft light bounce on the lower lid, thick upper lash line, delicate lower lashes.
-Light: key light from upper-front-left, cool moonlight fill from the right, a saturated rim light tracing the entire back edge of the figure in the character's own accent hue.
+Light: key light from upper-front-left, cool moonlight fill from the right.
+Rim light: mandatory and obvious — a bright saturated rim tracing the entire back edge of the hair and body, clearly separated in both hue and value from the local color.
+Hands: keep both hands near the body or partially occluded by the weapon; never a foreground hand disconnected from a visible forearm.
 Palette: low-saturation neutral base plus exactly two high-saturation accent hues; strong value separation between skin, hair and costume so the silhouette reads at thumbnail size.
 Costume craft: layered fabric with visible seams and stitched trim, small metal hardware, buckles, straps and ribbons that react to the pose and to a light breeze.
 Hair: grouped into clear readable clumps with rim-lit edges and 3-5 flyaway strands; never a flat blob.
 Pose: relaxed combat-ready contrapposto, three-quarter body turn, face toward camera, weight on one leg, both hands doing something specific and characterful.
 Framing: full body, head to shoes, entirely inside the frame with an 8% margin; figure fills 85% of frame height; eye line on the upper third.
-Background: flat soft radial gradient in the character's accent hue with sparse floating light particles. No environment, no floor, no cast shadow, clean edges that are easy to cut out.
+Background: flat radial gradient in a hue 150-180 degrees opposite the character's dominant color and at least 35% darker in value, so the silhouette separates hard even at thumbnail size; sparse floating light particles. No environment, no floor, no cast shadow, clean edges that are easy to cut out.
 Output: vertical 3:4, 4K, razor-sharp focus, no text, no watermark, no signature, no border, no UI, no logo.
 
 These girls are zombies, but the undead reads as FASHION, not as injury.
@@ -315,7 +369,8 @@ Weapon: clawed gloves, dark tapered claw tips, both forearms lightly bandaged.
 Signature motif: a hospital wristband on her left wrist stamped "00", cherry blossom petals drifting.
 Pose: low forward crouch, one clawed hand reaching toward the viewer, other hand back for balance.
 Expression: playful open-mouth grin with two small fangs, one eye winked.
-Effects: minimal — a few floating pink motes, plain radial gradient background.
+Effects: minimal — a few floating pink motes.
+Background: flat radial gradient in deep teal #1f3a3a, much darker than her pink, so the silhouette separates hard at thumbnail size.
 ```
 
 ---
@@ -330,3 +385,43 @@ Effects: minimal — a few floating pink motes, plain radial gradient background
 | 배경이 화려해서 캐릭터가 안 보인다 | Background 줄을 프롬프트 **마지막**으로 옮기고 `plain background` 를 한 번 더 반복 |
 | 배경 플레이트에 사람이 나온다 | `no characters` 를 프롬프트 맨 앞 + 네거티브 양쪽에 넣을 것 |
 | 손가락이 망가진다 | 손을 무기/소품이 가리는 포즈로 바꾸는 게 가장 확실 (미라는 클로, 루비는 총열, 세라는 기도 손) |
+
+---
+
+# 9. 게임에 넣는 법 (이미 구현됨)
+
+그림이 나오면 **코드는 건드릴 필요 없습니다.** 파일을 넣고 매니페스트에 이름만 적으면 됩니다.
+
+1. 파일을 규격대로 저장
+   ```
+   art/chibi/mira.png      256x256
+   art/bust/mira.png       512x512
+   art/full/mira.png      1536x2048
+   art/bg/1.png           3840x1680
+   ```
+2. `art/manifest.js` 에 id 추가
+   ```js
+   window.ZOM_ART = {
+     chibi: ['mira'],
+     bust:  ['mira'],
+     full:  ['mira'],
+     bg:    [1],
+     bgGround: 0.79,
+   };
+   ```
+3. 새로고침 — 끝.
+
+## 동작 규칙
+
+- **부분 교체됩니다.** 매니페스트에 적힌 것만 그림으로 바뀌고, 나머지는 기존
+  코드 드로잉을 그대로 씁니다. 미라 하나만 먼저 넣어보고 확인해도 됩니다.
+- **SD 아바타**는 전장에서 상하 호흡, 공격 시 앞으로 눌림 + 살짝 기울기,
+  근접 캐릭터의 돌진 모션이 코드로 자동으로 붙습니다.
+- **버스트**는 편성 슬롯과 소녀 목록 썸네일에 cover 크롭으로 들어갑니다.
+- **카드 일러**는 부대 탭에서 초상화를 누르면 열리는 캐릭터 카드에 표시됩니다.
+  (없으면 코드 드로잉을 크게 그려서 대신 보여줍니다)
+- **지역 배경**은 이미지의 지면선이 게임 지면과 정확히 맞도록 정렬됩니다.
+  기본값은 이미지 높이의 **79%** 지점입니다. 납품물이 다르면
+  `bgGround` 값만 실제 비율로 바꾸세요 (예: 지면선이 75%면 `bgGround: 0.75`).
+- 매니페스트에 적었는데 파일이 없으면 콘솔에 경고 한 줄이 뜨고, 해당 항목만
+  코드 드로잉으로 폴백합니다. 게임이 멈추지는 않습니다.

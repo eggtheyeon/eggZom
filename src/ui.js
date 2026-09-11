@@ -2,6 +2,7 @@
 (function (global) {
   'use strict';
   const D = global.ZD, Z = global.ZS, E = global.ZE, R = global.ZR, S = Z.S, F = D.Fmt;
+  const A = () => global.ZA;
   const $ = (s) => document.querySelector(s);
   const el = (tag, cls, html) => { const n = document.createElement(tag); if (cls) n.className = cls; if (html != null) n.innerHTML = html; return n; };
 
@@ -26,7 +27,9 @@
     const opt = modalQueue.shift();
     if (!opt) { modalOpen = false; $('#modal').hidden = true; return; }
     modalOpen = true;
-    $('#modal-title').innerHTML = opt.title || '';
+    const titleEl = $('#modal-title');
+    titleEl.innerHTML = opt.title || '';
+    titleEl.hidden = !opt.title;
     $('#modal-body').innerHTML = '';
     if (typeof opt.body === 'string') $('#modal-body').innerHTML = opt.body;
     else if (opt.body) $('#modal-body').appendChild(opt.body);
@@ -128,9 +131,54 @@
     const c = document.createElement('canvas');
     c.width = w * 2; c.height = h * 2;
     const cx = c.getContext('2d');
+    const bust = A() && A().get('bust', u.id);
+    if (bust) { A().drawCover(cx, bust, 0, 0, w * 2, h * 2); return c; }
     cx.scale(2, 2);
     R.drawGirl(cx, w / 2, h - 4, u, 1.2, s, { still: true, noShadow: true });
     return c;
+  }
+
+  /* ---- 캐릭터 카드 (전신 일러스트) ---- */
+  function unitCardModal(u) {
+    const owned = !!S.d.roster[u.id];
+    const r = S.d.roster[u.id];
+    const wrap = el('div', 'card-wrap');
+
+    const art = el('div', 'card-art');
+    const full = A() && A().get('full', u.id);
+    if (full) {
+      const im = document.createElement('img');
+      im.src = full.src; im.alt = u.name;
+      art.appendChild(im);
+    } else {
+      const c = document.createElement('canvas');
+      c.width = 460; c.height = 620;
+      const cx = c.getContext('2d');
+      const g = cx.createRadialGradient(230, 300, 20, 230, 300, 330);
+      g.addColorStop(0, u.dress + '44'); g.addColorStop(1, '#00000000');
+      cx.fillStyle = g; cx.fillRect(0, 0, 460, 620);
+      R.drawGirl(cx, 230, 590, u, 1.4, 6.6, { still: true });
+      art.appendChild(c);
+    }
+    if (!owned) art.style.filter = 'grayscale(1) brightness(.4)';
+    wrap.appendChild(art);
+
+    const info = el('div', 'card-info');
+    info.innerHTML =
+      `<div class="card-title">${u.title}</div>
+       <div class="card-name">${owned ? u.name : '???'} <span class="pill ${u.rarity}">${u.rarity}</span></div>
+       <div class="card-quote">「${u.desc}」</div>
+       <div class="card-stat"><span>역할</span><b>${u.role}</b></div>
+       <div class="card-stat"><span>패시브 (레벨당)</span><b style="color:var(--mint)">${u.passive.label}</b></div>
+       <div class="card-stat"><span>사거리</span><b>${u.range >= 300 ? '장거리' : u.range >= 120 ? '중거리' : '근접'}</b></div>
+       <div class="card-stat"><span>공격 주기</span><b>${u.interval.toFixed(2)}초</b></div>` +
+      (owned
+        ? `<div class="card-stat"><span>레벨</span><b>Lv.${r.lv}</b></div>
+           <div class="card-stat"><span>각성</span><b class="stars">${'★'.repeat(r.star)}${'☆'.repeat(5 - r.star)}</b></div>`
+        : `<div class="card-stat"><span>상태</span><b style="color:var(--dim)">미발견 — 감염 소환으로 찾을 수 있다</b></div>`);
+    wrap.appendChild(info);
+
+    UI.modal({ title: '', body: wrap, actions: [{ label: '닫기', pri: true }] });
   }
 
   function shardNeed(u, star) { return Math.ceil(D.RARITY[u.rarity].shard * star); }
@@ -178,6 +226,9 @@
       const card = el('div', 'unit-card');
       const por = el('div', 'unit-por'); por.appendChild(portraitCanvas(u, 52, 60, 0.62));
       if (!owned) por.style.filter = 'grayscale(1) brightness(.45)';
+      por.title = '캐릭터 카드 보기';
+      por.style.cursor = 'pointer';
+      por.onclick = () => unitCardModal(u);
       card.appendChild(por);
 
       const body = el('div', 'unit-body');

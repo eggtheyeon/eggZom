@@ -80,11 +80,14 @@ WAVE 25 이상에서 재감염하면, 도달한 최고 웨이브에 비례해 **
 index.html          화면 골격
 assets/style.css    다크 파스텔 테마 · 반응형(모바일 대응)
 src/data.js         유닛 · 유물 · 강화 · 유전자 · 지역 데이터
+src/assets.js       외부 일러스트 로더 (없으면 코드 드로잉으로 폴백)
 src/state.js        저장/불러오기 · 파생 스탯 계산 · 성장 곡선
 src/engine.js       전투 시뮬레이션 (스폰 · 타겟팅 · 데미지 · 웨이브)
 src/render.js       Canvas 렌더러 (절차적 미소녀 드로잉 포함)
 src/ui.js           탭 · 강화 · 부대 · 소환 · 유물 선택 · 재감염
 src/main.js         부트 · 고정 timestep 루프 · 방치 정산
+art/manifest.js     교체할 일러스트 목록
+docs/art-prompts.md 일러스트 외주용 프롬프트 키트
 ```
 
 - **고정 timestep(1/60초)** 으로 프레임률과 무관하게 동일한 밸런스를 보장합니다.
@@ -115,6 +118,14 @@ ZDEV.grantRelic('fang')
 캐릭터·배경 일러스트를 외부 이미지 AI로 뽑기 위한 프롬프트 키트가
 [`docs/art-prompts.md`](docs/art-prompts.md) 에 있습니다. 인게임 색상 hex 를
 그대로 박아둬서, 받은 일러스트가 현재 UI 팔레트와 그대로 맞습니다.
+
+그림이 나오면 **코드 수정 없이** `art/` 에 파일을 넣고 `art/manifest.js` 에
+이름만 적으면 됩니다. 전장 아바타는 SD(2.5등신), 캐릭터 카드는 전신 일러로
+분리되어 있고, 없는 항목은 코드 드로잉으로 자동 폴백합니다.
+
+```js
+window.ZOM_ART = { chibi: ['mira'], bust: ['mira'], full: ['mira'], bg: [1] };
+```
 
 ## 라이선스
 

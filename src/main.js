@@ -47,6 +47,7 @@
 
   /* ---------- 부트 ---------- */
   function boot() {
+    if (global.ZA) global.ZA.init();   // 외부 일러스트가 있으면 로드
     const lastSeen = Z.load();
     E.refresh();
     E.resetField(true);

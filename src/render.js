@@ -2,6 +2,7 @@
 (function (global) {
   'use strict';
   const D = global.ZD, Z = global.ZS, E = global.ZE, S = Z.S;
+  const A = () => global.ZA;
 
   const R = {};
   let cv, ctx, DPR = 1, scale = 1, ox = 0, oy = 0, padX = 0, padY = 0;
@@ -35,6 +36,18 @@
   function drawBackground(t) {
     const z = Z.zone(S.d.wave);
     const L = -padX, T = -padY, FW = E.W + padX * 2, FH = E.H + padY * 2;
+
+    // 지역 배경 일러스트가 있으면 대체한다 (없으면 아래 절차적 배경)
+    const bgImg = A() && A().get('bg', String(Z.zoneIndex(S.d.wave) + 1));
+    if (bgImg) {
+      drawZoneBg(bgImg, L, T, FW, FH);
+      const fg2 = ctx.createLinearGradient(0, E.GROUND - 70, 0, E.GROUND + 30);
+      fg2.addColorStop(0, 'rgba(120,200,150,0)');
+      fg2.addColorStop(1, 'rgba(120,200,150,.10)');
+      ctx.fillStyle = fg2; ctx.fillRect(L, E.GROUND - 70, FW, 100);
+      return;
+    }
+
     const g = ctx.createLinearGradient(0, T, 0, E.GROUND + 30);
     g.addColorStop(0, z.sky[0]); g.addColorStop(1, z.sky[1]);
     ctx.fillStyle = g; ctx.fillRect(L, T, FW, FH);
@@ -105,6 +118,20 @@
     fg.addColorStop(0, 'rgba(120,200,150,0)');
     fg.addColorStop(1, 'rgba(120,200,150,.10)');
     ctx.fillStyle = fg; ctx.fillRect(L, E.GROUND - 70, FW, 100);
+  }
+
+  // 배경 일러스트의 지면선(이미지 높이의 BG_GROUND 지점)을 게임 지면과 정확히 맞춘다.
+  // 단순 cover 로 채우면 화면비마다 지면선이 어긋나 캐릭터가 공중에 뜬다.
+  const BG_GROUND = 0.79;
+  function drawZoneBg(img, L, T, FW, FH) {
+    const gf = (global.ZOM_ART && +global.ZOM_ART.bgGround) || BG_GROUND;
+    const s = Math.max(FW / img.width, FH / img.height);
+    const dw = img.width * s, dh = img.height * s;
+    const x = L + (FW - dw) / 2;
+    let y = E.GROUND - gf * dh;
+    y = Math.min(y, T);                 // 위쪽에 빈 곳이 생기지 않게
+    y = Math.max(y, T + FH - dh);       // 아래쪽도 마찬가지
+    ctx.drawImage(img, x, y, dw, dh);
   }
 
   /* ============ 방벽 ============ */
@@ -407,6 +434,17 @@
     c.restore();
   }
 
+  // 외부 SD 일러스트를 살아 있게 보이도록: 상하 호흡 + 공격 시 앞으로 눌림
+  const CHIBI_H = 104;
+  function drawChibi(c, img, x, y, t, seed, atk) {
+    const bob = Math.sin(t * 2.3 + seed * 1.7) * 2.2;
+    const squash = 1 - atk * 0.05;
+    const lean = atk * 0.1;
+    c.fillStyle = 'rgba(0,0,0,.38)';
+    c.beginPath(); c.ellipse(x, y + 2, 19, 5.5, 0, 0, 7); c.fill();
+    A().drawFeet(c, img, x + atk * 5, y + bob, CHIBI_H, { sy: squash, rot: lean * 0.12 });
+  }
+
   function drawEye(c, x, y, col, open) {
     c.save(); c.translate(x, y); c.scale(1, open);
     c.fillStyle = '#fffdf8';
@@ -645,7 +683,9 @@
       const atk = Math.max(0, Math.min(1, 1 - cd / 0.22));
       const l = E.lunge[i];
       const dash = l ? Math.sin((l.t / 0.2) * Math.PI) * l.x * 0.55 : 0;
-      drawGirl(ctx, spot.x + dash, spot.y, t2.def, t, 1.2, { atk });
+      const sp = A() && A().get('chibi', t2.def.id);
+      if (sp) drawChibi(ctx, sp, spot.x + dash, spot.y, t, i, atk);
+      else drawGirl(ctx, spot.x + dash, spot.y, t2.def, t, 1.2, { atk });
       // 별 표시
       if (t2.star > 1) {
         ctx.font = '9px sans-serif'; ctx.textAlign = 'center'; ctx.fillStyle = '#ffcf5c';
